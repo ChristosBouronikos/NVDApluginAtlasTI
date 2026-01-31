@@ -1,23 +1,21 @@
 # Atlas.ti Accessibility NVDA Add-on
-# Πρόσθετο Προσβασιμότητας Atlas.ti για NVDA
 
-**Author / Δημιουργός:** Christos Bouronikos  
+**Author:** Christos Bouronikos  
 **Email:** chrisbouronikos@gmail.com  
-**Donations / Δωρεές:** [PayPal](https://paypal.me/christosbouronikos)
+**Donations:** [PayPal](https://paypal.me/christosbouronikos)
 
 ---
+
+**Language:** [English](#english) | [Ελληνικά](#ελληνικά)
+
+---
+
+# English
 
 > **If this plugin helped you, please consider making a donation!**  
-> **Αν αυτό το πρόσθετο σας βοήθησε, παρακαλώ σκεφτείτε να κάνετε μια δωρεά!**  
 > [https://paypal.me/christosbouronikos](https://paypal.me/christosbouronikos)
 
----
-
-**Language / Γλώσσα:** [English](#english) | [Ελληνικά](#ελληνικά)
-
----
-
-## What is the NVDA key? / Τι είναι το πλήκτρο NVDA;
+## What is the NVDA key?
 
 The **NVDA key** is a modifier key used for NVDA commands.
 
@@ -30,22 +28,6 @@ For example, `NVDA+Alt+D` means:
 - Hold down **Insert** (or Caps Lock)
 - Hold down **Alt**
 - Press the **D** key once
-
-Το **πλήκτρο NVDA** είναι ένα πλήκτρο τροποποίησης που χρησιμοποιείται για τις εντολές του NVDA.
-
-**Προεπιλεγμένα πλήκτρα NVDA:**
-- **Insert** (κύριο πληκτρολόγιο)
-- **Numpad Insert** (αριθμητικό πληκτρολόγιο)
-- **Caps Lock** (μπορεί να ενεργοποιηθεί στις ρυθμίσεις)
-
-Για παράδειγμα, `NVDA+Alt+D` σημαίνει:
-- Κρατήστε πατημένο το **Insert** (ή Caps Lock)
-- Κρατήστε πατημένο το **Alt**
-- Πατήστε μια φορά το πλήκτρο **D**
-
----
-
-# English
 
 ## Overview
 
@@ -124,6 +106,23 @@ GNU GPL v2.0 - Attribution to original creator Christos Bouronikos required
 
 # Ελληνικά
 
+> **Αν αυτό το πρόσθετο σας βοήθησε, παρακαλώ σκεφτείτε να κάνετε μια δωρεά!**  
+> [https://paypal.me/christosbouronikos](https://paypal.me/christosbouronikos)
+
+## Τι είναι το πλήκτρο NVDA;
+
+Το **πλήκτρο NVDA** είναι ένα πλήκτρο τροποποίησης που χρησιμοποιείται για τις εντολές του NVDA.
+
+**Προεπιλεγμένα πλήκτρα NVDA:**
+- **Insert** (κύριο πληκτρολόγιο)
+- **Numpad Insert** (αριθμητικό πληκτρολόγιο)
+- **Caps Lock** (μπορεί να ενεργοποιηθεί στις ρυθμίσεις)
+
+Για παράδειγμα, `NVDA+Alt+D` σημαίνει:
+- Κρατήστε πατημένο το **Insert** (ή Caps Lock)
+- Κρατήστε πατημένο το **Alt**
+- Πατήστε μια φορά το πλήκτρο **D**
+
 ## Επισκόπηση
 
 Ένα πρόσθετο αναγνώστη οθόνης NVDA που βελτιώνει την προσβασιμότητα του λογισμικού ποιοτικής ανάλυσης δεδομένων [Atlas.ti](https://atlasti.com/), καθιστώντας το χρησιμοποιήσιμο για τυφλούς ερευνητές.
@@ -188,6 +187,11 @@ If you find this addon helpful, please consider:
 - Reporting bugs or suggesting features
 - Making a donation: [https://paypal.me/christosbouronikos](https://paypal.me/christosbouronikos)
 
+Αν αυτό το πρόσθετο σας φάνηκε χρήσιμο, παρακαλώ σκεφτείτε να:
+- Βάλετε αστέρι στο repository
+- Αναφέρετε σφάλματα ή προτείνετε χαρακτηριστικά
+- Κάνετε μια δωρεά: [https://paypal.me/christosbouronikos](https://paypal.me/christosbouronikos)
+
 ---
 
 ## For Developers
@@ -214,5 +218,7 @@ If you want to submit this add-on or contribute to the submission process:
 3. Provide the HTTPS download URL, repository URL, and metadata
 4. Wait for initial approval (automated security checks)
 5. Future updates will be published automatically
+
+---
 
 Thank you! / Ευχαριστώ!
