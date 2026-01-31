@@ -11,10 +11,19 @@
 # Copyright (C) 2026 Christos Bouronikos
 # =============================================================================
 
-set -e
+set -euo pipefail
 
-ADDON_NAME="atlastiAccessibility"
-VERSION="1.0.0"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+ADDON_NAME="$(awk -F= '/^[[:space:]]*name[[:space:]]*=/ {print $2; exit}' manifest.ini | xargs)"
+VERSION="$(awk -F= '/^[[:space:]]*version[[:space:]]*=/ {print $2; exit}' manifest.ini | xargs)"
+
+if [[ -z "${ADDON_NAME}" || -z "${VERSION}" ]]; then
+  echo "Error: name/version missing from manifest.ini" >&2
+  exit 1
+fi
+
 OUTPUT_FILE="${ADDON_NAME}-${VERSION}.nvda-addon"
 
 echo "Building Atlas.ti Accessibility NVDA Add-on..."
