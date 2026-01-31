@@ -28,6 +28,14 @@ rm -f "$OUTPUT_FILE"
 
 echo "Creating add-on package: $OUTPUT_FILE"
 
+# Copy latest documentation to doc folders
+echo "Updating documentation..."
+mkdir -p doc/en doc/el
+cp readme.md doc/en/readme.md
+cp readme.md doc/el/readme.md
+cp changelog.md doc/en/changelog.md
+cp changelog.md doc/el/changelog.md
+
 # Create the .nvda-addon file (it's just a zip with a different extension)
 zip -r "$OUTPUT_FILE" \
     manifest.ini \
