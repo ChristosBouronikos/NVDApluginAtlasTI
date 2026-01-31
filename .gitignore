@@ -1,0 +1,40 @@
+# Atlas.ti NVDA Add-on - .gitignore
+# Author: Christos Bouronikos <chrisbouronikos@gmail.com>
+# Donations: https://paypal.me/christosbouronikos
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+
+# NVDA Add-on builds
+*.nvda-addon
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Compiled translations (keep .po, ignore .mo for git)
+# Uncomment if you want to regenerate .mo files
+# *.mo
+
+# Logs
+*.log

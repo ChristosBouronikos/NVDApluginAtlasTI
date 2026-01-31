@@ -1,0 +1,194 @@
+# NVDA Add-on: Atlas.ti Accessibility v1.0
+# Greek Translation (Ελληνικά)
+# =============================================================================
+# Author: Christos Bouronikos
+# Email: chrisbouronikos@gmail.com
+# Donations: https://paypal.me/christosbouronikos
+#
+# Copyright (C) 2026 Christos Bouronikos
+# GNU General Public License v2
+# =============================================================================
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: atlastiAccessibility 1.0.0\n"
+"Report-Msgid-Bugs-To: chrisbouronikos@gmail.com\n"
+"POT-Creation-Date: 2026-01-31 16:00+0200\n"
+"PO-Revision-Date: 2026-01-31 16:00+0200\n"
+"Last-Translator: Christos Bouronikos <chrisbouronikos@gmail.com>\n"
+"Language-Team: Greek\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Script category
+msgid "Atlas.ti"
+msgstr "Atlas.ti"
+
+# Panel names
+msgid "Documents Panel"
+msgstr "Πίνακας Εγγράφων"
+
+msgid "Codes Panel"
+msgstr "Πίνακας Κωδικών"
+
+msgid "Quotations Panel"
+msgstr "Πίνακας Αποσπασμάτων"
+
+msgid "Memos Panel"
+msgstr "Πίνακας Σημειώσεων"
+
+msgid "Project Navigator"
+msgstr "Περιήγηση Έργου"
+
+# Button labels
+msgid "New Project"
+msgstr "Νέο Έργο"
+
+msgid "Open Project"
+msgstr "Άνοιγμα Έργου"
+
+msgid "Save Project"
+msgstr "Αποθήκευση Έργου"
+
+msgid "Import Documents"
+msgstr "Εισαγωγή Εγγράφων"
+
+msgid "Export"
+msgstr "Εξαγωγή"
+
+msgid "Create New Code"
+msgstr "Δημιουργία Νέου Κωδικού"
+
+msgid "Create New Memo"
+msgstr "Δημιουργία Νέας Σημείωσης"
+
+msgid "Create Quotation"
+msgstr "Δημιουργία Αποσπάσματος"
+
+msgid "Search"
+msgstr "Αναζήτηση"
+
+msgid "Filter"
+msgstr "Φίλτρο"
+
+# Panel navigation
+msgid "Jump to Documents panel"
+msgstr "Μετάβαση στον πίνακα Εγγράφων"
+
+msgid "Jump to Codes panel"
+msgstr "Μετάβαση στον πίνακα Κωδικών"
+
+msgid "Jump to Quotations panel"
+msgstr "Μετάβαση στον πίνακα Αποσπασμάτων"
+
+msgid "Jump to Memos panel"
+msgstr "Μετάβαση στον πίνακα Σημειώσεων"
+
+msgid "Jump to Project Navigator"
+msgstr "Μετάβαση στην Περιήγηση Έργου"
+
+msgid "Documents"
+msgstr "Έγγραφα"
+
+msgid "Codes"
+msgstr "Κωδικοί"
+
+msgid "Quotations"
+msgstr "Αποσπάσματα"
+
+msgid "Memos"
+msgstr "Σημειώσεις"
+
+msgid "{panel} panel"
+msgstr "Πίνακας {panel}"
+
+# Reading helpers
+msgid "Read current code details"
+msgstr "Ανάγνωση λεπτομερειών τρέχοντος κωδικού"
+
+msgid "Read current quotation text"
+msgstr "Ανάγνωση κειμένου τρέχοντος αποσπάσματος"
+
+msgid "Read document information"
+msgstr "Ανάγνωση πληροφοριών εγγράφου"
+
+msgid "Announce current panel"
+msgstr "Αναγγελία τρέχοντος πίνακα"
+
+msgid "List available Atlas.ti shortcuts"
+msgstr "Λίστα διαθέσιμων συντομεύσεων Atlas.ti"
+
+msgid "No code selected or code information unavailable"
+msgstr "Δεν έχει επιλεγεί κωδικός ή οι πληροφορίες δεν είναι διαθέσιμες"
+
+msgid "No quotation selected or quotation text unavailable"
+msgstr "Δεν έχει επιλεγεί απόσπασμα ή το κείμενο δεν είναι διαθέσιμο"
+
+msgid "No document information available"
+msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες εγγράφου"
+
+msgid "Current panel: {panel}"
+msgstr "Τρέχων πίνακας: {panel}"
+
+msgid "Unable to determine current panel"
+msgstr "Αδυναμία προσδιορισμού τρέχοντος πίνακα"
+
+msgid "Unnamed code"
+msgstr "Ανώνυμος κωδικός"
+
+msgid "Code: {name}"
+msgstr "Κωδικός: {name}"
+
+msgid "Quotation: {text}"
+msgstr "Απόσπασμα: {text}"
+
+msgid "Document: {name}"
+msgstr "Έγγραφο: {name}"
+
+msgid "Current context: {name}"
+msgstr "Τρέχον πλαίσιο: {name}"
+
+msgid "Trying to navigate to {panel}. Use Atlas.ti's View menu if this doesn't work."
+msgstr "Προσπάθεια μετάβασης σε {panel}. Χρησιμοποιήστε το μενού Προβολή αν δεν λειτουργεί."
+
+msgid "Could not navigate to {panel} panel"
+msgstr "Αδυναμία μετάβασης στον πίνακα {panel}"
+
+# Shortcut help
+msgid "Panel Navigation:"
+msgstr "Πλοήγηση Πινάκων:"
+
+msgid "NVDA+Alt+D: Documents"
+msgstr "NVDA+Alt+D: Έγγραφα"
+
+msgid "NVDA+Alt+C: Codes"
+msgstr "NVDA+Alt+C: Κωδικοί"
+
+msgid "NVDA+Alt+Q: Quotations"
+msgstr "NVDA+Alt+Q: Αποσπάσματα"
+
+msgid "NVDA+Alt+M: Memos"
+msgstr "NVDA+Alt+M: Σημειώσεις"
+
+msgid "NVDA+Alt+P: Project Navigator"
+msgstr "NVDA+Alt+P: Περιήγηση Έργου"
+
+msgid "Reading:"
+msgstr "Ανάγνωση:"
+
+msgid "NVDA+Shift+C: Read code"
+msgstr "NVDA+Shift+C: Κωδικός"
+
+msgid "NVDA+Shift+Q: Read quotation"
+msgstr "NVDA+Shift+Q: Απόσπασμα"
+
+msgid "NVDA+Shift+D: Read document"
+msgstr "NVDA+Shift+D: Έγγραφο"
+
+msgid "NVDA+Shift+P: Current panel"
+msgstr "NVDA+Shift+P: Τρέχων πίνακας"
+
+msgid "NVDA+Shift+H: This help"
+msgstr "NVDA+Shift+H: Βοήθεια"
