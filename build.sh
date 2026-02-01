@@ -16,11 +16,11 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-ADDON_NAME="$(awk -F= '/^[[:space:]]*name[[:space:]]*=/ {print $2; exit}' manifest.ini | xargs)"
-VERSION="$(awk -F= '/^[[:space:]]*version[[:space:]]*=/ {print $2; exit}' manifest.ini | xargs)"
+ADDON_NAME="$(awk -F= '/^[[:space:]]*name[[:space:]]*=/ {print $2; exit}' addon/manifest.ini | xargs | sed 's/^\"//; s/\"$//')"
+VERSION="$(awk -F= '/^[[:space:]]*version[[:space:]]*=/ {print $2; exit}' addon/manifest.ini | xargs | sed 's/^\"//; s/\"$//')"
 
 if [[ -z "${ADDON_NAME}" || -z "${VERSION}" ]]; then
-  echo "Error: name/version missing from manifest.ini" >&2
+  echo "Error: name/version missing from addon/manifest.ini" >&2
   exit 1
 fi
 
@@ -39,24 +39,20 @@ echo "Creating add-on package: $OUTPUT_FILE"
 
 # Copy latest documentation to doc folders
 echo "Updating documentation..."
-mkdir -p doc/en doc/el
-cp readme.md doc/en/readme.md
-cp readme.md doc/el/readme.md
-cp changelog.md doc/en/changelog.md
-cp changelog.md doc/el/changelog.md
+mkdir -p addon/doc/en addon/doc/el
+cp readme.md addon/doc/en/readme.md
+cp readme.md addon/doc/el/readme.md
+cp changelog.md addon/doc/en/changelog.md
+cp changelog.md addon/doc/el/changelog.md
 
 # Create the .nvda-addon file (it's just a zip with a different extension)
-zip -r "$OUTPUT_FILE" \
-    manifest.ini \
-    appModules/ \
-    globalPlugins/ \
-    locale/ \
-    doc/ \
+(cd addon && zip -r "../$OUTPUT_FILE" \
+    . \
     -x "*.pyc" \
     -x "*__pycache__*" \
     -x "*.DS_Store" \
     -x "*.git*" \
-    -x "*.po"
+    -x "*.po")
 
 echo ""
 echo "Build complete!"
