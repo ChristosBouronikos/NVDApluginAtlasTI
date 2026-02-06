@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # =============================================================================
 # Atlas.ti Helper Global Plugin for NVDA
-# Version: 1.0.0
+# Version: 1.1.0
 # =============================================================================
 # 
 # Author: Christos Bouronikos
@@ -18,8 +18,9 @@
 """
 Atlas.ti Helper Global Plugin
 
-Registers the app module for various Atlas.ti executable names,
-ensuring compatibility across different versions.
+Attempts to register the app module for various Atlas.ti executable names.
+If NVDA doesn't expose a public registration API, alias appModules provide
+compatibility for common executable variants.
 """
 
 import globalPluginHandler
@@ -58,13 +59,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         try:
             # Import the atlas app module
             from appModules import atlas
-            
-            # Register for each known executable name
-            for exeName in ATLAS_TI_EXECUTABLES:
-                normalizedName = exeName.lower().replace(".", "").replace(" ", "")
-                if normalizedName not in appModuleHandler.runningTable:
-                    log.debug(f"Registered Atlas.ti app module for: {exeName}")
-                    
+            register = getattr(appModuleHandler, "registerAppModule", None)
+            if callable(register):
+                for exeName in ATLAS_TI_EXECUTABLES:
+                    try:
+                        register(exeName, atlas.AppModule)
+                    except Exception as e:
+                        log.debug(f"Could not register {exeName}: {e}")
+                log.debug("Registered Atlas.ti app module variants via registerAppModule")
+            else:
+                # Fallback relies on alias appModules (e.g. atlasti.py, atlasti25.py)
+                log.debug("No app module registration API; relying on alias appModules")
         except ImportError:
             log.warning("Could not import atlas app module")
         except Exception as e:
