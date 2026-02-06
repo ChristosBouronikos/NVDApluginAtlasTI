@@ -1,4 +1,4 @@
-# NVDA Add-on: Atlas.ti Accessibility v1.0
+# NVDA Add-on: Atlas.ti Accessibility v1.1
 # Greek Translation (Ελληνικά)
 # =============================================================================
 # Author: Christos Bouronikos
@@ -11,10 +11,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: atlastiAccessibility 1.0.0\n"
+"Project-Id-Version: atlastiAccessibility 1.1.0\n"
 "Report-Msgid-Bugs-To: chrisbouronikos@gmail.com\n"
-"POT-Creation-Date: 2026-01-31 16:00+0200\n"
-"PO-Revision-Date: 2026-01-31 16:00+0200\n"
+"POT-Creation-Date: 2026-02-01 12:00+0200\n"
+"PO-Revision-Date: 2026-02-01 12:00+0200\n"
 "Last-Translator: Christos Bouronikos <chrisbouronikos@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -160,35 +160,35 @@ msgstr "Αδυναμία μετάβασης στον πίνακα {panel}"
 msgid "Panel Navigation:"
 msgstr "Πλοήγηση Πινάκων:"
 
-msgid "NVDA+Alt+D: Documents"
-msgstr "NVDA+Alt+D: Έγγραφα"
+msgid "NVDA+Ctrl+Alt+D: Documents"
+msgstr "NVDA+Ctrl+Alt+D: Έγγραφα"
 
-msgid "NVDA+Alt+C: Codes"
-msgstr "NVDA+Alt+C: Κωδικοί"
+msgid "NVDA+Ctrl+Alt+C: Codes"
+msgstr "NVDA+Ctrl+Alt+C: Κωδικοί"
 
-msgid "NVDA+Alt+Q: Quotations"
-msgstr "NVDA+Alt+Q: Αποσπάσματα"
+msgid "NVDA+Ctrl+Alt+Q: Quotations"
+msgstr "NVDA+Ctrl+Alt+Q: Αποσπάσματα"
 
-msgid "NVDA+Alt+M: Memos"
-msgstr "NVDA+Alt+M: Σημειώσεις"
+msgid "NVDA+Ctrl+Alt+M: Memos"
+msgstr "NVDA+Ctrl+Alt+M: Σημειώσεις"
 
-msgid "NVDA+Alt+P: Project Navigator"
-msgstr "NVDA+Alt+P: Περιήγηση Έργου"
+msgid "NVDA+Ctrl+Alt+P: Project Navigator"
+msgstr "NVDA+Ctrl+Alt+P: Περιήγηση Έργου"
 
 msgid "Reading:"
 msgstr "Ανάγνωση:"
 
-msgid "NVDA+Shift+C: Read code"
-msgstr "NVDA+Shift+C: Κωδικός"
+msgid "NVDA+Ctrl+Alt+Shift+C: Read code"
+msgstr "NVDA+Ctrl+Alt+Shift+C: Κωδικός"
 
-msgid "NVDA+Shift+Q: Read quotation"
-msgstr "NVDA+Shift+Q: Απόσπασμα"
+msgid "NVDA+Ctrl+Alt+Shift+Q: Read quotation"
+msgstr "NVDA+Ctrl+Alt+Shift+Q: Απόσπασμα"
 
-msgid "NVDA+Shift+D: Read document"
-msgstr "NVDA+Shift+D: Έγγραφο"
+msgid "NVDA+Ctrl+Alt+Shift+D: Read document"
+msgstr "NVDA+Ctrl+Alt+Shift+D: Έγγραφο"
 
-msgid "NVDA+Shift+P: Current panel"
-msgstr "NVDA+Shift+P: Τρέχων πίνακας"
+msgid "NVDA+Ctrl+Alt+Shift+P: Current panel"
+msgstr "NVDA+Ctrl+Alt+Shift+P: Τρέχων πίνακας"
 
-msgid "NVDA+Shift+H: This help"
-msgstr "NVDA+Shift+H: Βοήθεια"
+msgid "NVDA+Ctrl+Alt+Shift+H: This help"
+msgstr "NVDA+Ctrl+Alt+Shift+H: Βοήθεια"

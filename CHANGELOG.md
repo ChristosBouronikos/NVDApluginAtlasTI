@@ -6,6 +6,19 @@
 
 ---
 
+## [1.1.0] - 2026-02-01
+
+### Added / Προστέθηκαν
+- Compatibility aliases for common Atlas.ti executable names
+- More robust panel detection with normalized UIA matching and caching
+- Safer default shortcuts to reduce conflicts
+
+### Changed / Αλλαγές
+- Panel navigation shortcuts now use NVDA+Ctrl+Alt+...
+- Reading shortcuts now use NVDA+Ctrl+Alt+Shift+...
+
+---
+
 ## [1.0.0] - 2026-01-31
 
 ### Added / Προστέθηκαν

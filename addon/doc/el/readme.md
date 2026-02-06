@@ -24,7 +24,7 @@ The **NVDA key** is a modifier key used for NVDA commands.
 - **Numpad Insert** (numeric keypad)
 - **Caps Lock** (can be enabled in settings)
 
-For example, `NVDA+Alt+D` means:
+For example, `NVDA+Ctrl+Alt+D` means:
 - Hold down **Insert** (or Caps Lock)
 - Hold down **Alt**
 - Press the **D** key once
@@ -43,18 +43,18 @@ A NVDA screen reader add-on that enhances accessibility for [Atlas.ti](https://a
 ## Keyboard Shortcuts
 
 ### Panel Navigation
-- **NVDA+Alt+D** - Documents Panel
-- **NVDA+Alt+C** - Codes Panel
-- **NVDA+Alt+Q** - Quotations Panel
-- **NVDA+Alt+M** - Memos Panel
-- **NVDA+Alt+P** - Project Navigator
+- **NVDA+Ctrl+Alt+D** - Documents Panel
+- **NVDA+Ctrl+Alt+C** - Codes Panel
+- **NVDA+Ctrl+Alt+Q** - Quotations Panel
+- **NVDA+Ctrl+Alt+M** - Memos Panel
+- **NVDA+Ctrl+Alt+P** - Project Navigator
 
 ### Reading
-- **NVDA+Shift+C** - Code details
-- **NVDA+Shift+Q** - Quotation text
-- **NVDA+Shift+D** - Document info
-- **NVDA+Shift+P** - Current panel
-- **NVDA+Shift+H** - List shortcuts
+- **NVDA+Ctrl+Alt+Shift+C** - Code details
+- **NVDA+Ctrl+Alt+Shift+Q** - Quotation text
+- **NVDA+Ctrl+Alt+Shift+D** - Document info
+- **NVDA+Ctrl+Alt+Shift+P** - Current panel
+- **NVDA+Ctrl+Alt+Shift+H** - List shortcuts
 
 ## Installation
 
@@ -80,9 +80,9 @@ This add-on will be submitted to the official NVDA add-on store soon.
 3. Restart NVDA when prompted
 4. Open Atlas.ti
 5. Test each shortcut:
-   - Press NVDA+Alt+D - should announce "Documents panel"
-   - Press NVDA+Alt+C - should announce "Codes panel"
-   - Press NVDA+Shift+H - should list all shortcuts
+   - Press NVDA+Ctrl+Alt+D - should announce "Documents panel"
+   - Press NVDA+Ctrl+Alt+C - should announce "Codes panel"
+   - Press NVDA+Ctrl+Alt+Shift+H - should list all shortcuts
 6. Check NVDA log for any errors: NVDA+N - Tools - View Log
 
 ### Reporting Issues
@@ -118,7 +118,7 @@ GNU GPL v2.0 - Attribution to original creator Christos Bouronikos required
 - **Numpad Insert** (αριθμητικό πληκτρολόγιο)
 - **Caps Lock** (μπορεί να ενεργοποιηθεί στις ρυθμίσεις)
 
-Για παράδειγμα, `NVDA+Alt+D` σημαίνει:
+Για παράδειγμα, `NVDA+Ctrl+Alt+D` σημαίνει:
 - Κρατήστε πατημένο το **Insert** (ή Caps Lock)
 - Κρατήστε πατημένο το **Alt**
 - Πατήστε μια φορά το πλήκτρο **D**
@@ -137,18 +137,18 @@ GNU GPL v2.0 - Attribution to original creator Christos Bouronikos required
 ## Συντομεύσεις Πληκτρολογίου
 
 ### Πλοήγηση Πινάκων
-- **NVDA+Alt+D** - Πίνακας Εγγράφων
-- **NVDA+Alt+C** - Πίνακας Κωδικών
-- **NVDA+Alt+Q** - Πίνακας Αποσπασμάτων
-- **NVDA+Alt+M** - Πίνακας Σημειώσεων
-- **NVDA+Alt+P** - Περιήγηση Έργου
+- **NVDA+Ctrl+Alt+D** - Πίνακας Εγγράφων
+- **NVDA+Ctrl+Alt+C** - Πίνακας Κωδικών
+- **NVDA+Ctrl+Alt+Q** - Πίνακας Αποσπασμάτων
+- **NVDA+Ctrl+Alt+M** - Πίνακας Σημειώσεων
+- **NVDA+Ctrl+Alt+P** - Περιήγηση Έργου
 
 ### Ανάγνωση
-- **NVDA+Shift+C** - Λεπτομέρειες κωδικού
-- **NVDA+Shift+Q** - Κείμενο αποσπάσματος
-- **NVDA+Shift+D** - Πληροφορίες εγγράφου
-- **NVDA+Shift+P** - Τρέχων πίνακας
-- **NVDA+Shift+H** - Λίστα συντομεύσεων
+- **NVDA+Ctrl+Alt+Shift+C** - Λεπτομέρειες κωδικού
+- **NVDA+Ctrl+Alt+Shift+Q** - Κείμενο αποσπάσματος
+- **NVDA+Ctrl+Alt+Shift+D** - Πληροφορίες εγγράφου
+- **NVDA+Ctrl+Alt+Shift+P** - Τρέχων πίνακας
+- **NVDA+Ctrl+Alt+Shift+H** - Λίστα συντομεύσεων
 
 ## Εγκατάσταση
 
@@ -208,7 +208,7 @@ If you find this addon helpful, please consider:
 .\build.ps1
 ```
 
-After building, the `atlastiAccessibility-1.0.0.nvda-addon` file will be created in the project folder.
+After building, the `atlastiAccessibility-1.1.0.nvda-addon` file will be created in the project folder.
 
 ### Submitting to NVDA Add-on Store
 
