@@ -34,17 +34,17 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          url="$(gh release view "${{ github.event.release.tag_name }}" \
+          # `.url` from `gh release view --json assets` is already the public
+          # browser_download_url (there's a separate `.apiUrl` for the API
+          # metadata endpoint) - use it directly, don't re-fetch it.
+          downloadUrl="$(gh release view "${{ github.event.release.tag_name }}" \
             --repo "${{ github.repository }}" \
             --json assets \
             --jq '.assets[] | select(.name | endswith(".nvda-addon")) | .url' | head -n1)"
-          if [[ -z "$url" ]]; then
+          if [[ -z "$downloadUrl" ]]; then
             echo "No .nvda-addon asset found on release ${{ github.event.release.tag_name }}" >&2
             exit 1
           fi
-          # .url from `gh release view --json assets` is the API asset URL;
-          # resolve it to the public browser_download_url instead.
-          downloadUrl="$(gh api "$url" --jq '.browser_download_url')"
           echo "downloadUrl=$downloadUrl" >> "$GITHUB_OUTPUT"
 
       - name: Build pre-filled submission link
