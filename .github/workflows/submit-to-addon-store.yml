@@ -1,34 +1,33 @@
-name: Submit update to NVDA Add-on Store
+name: Prepare NVDA Add-on Store submission
 
-# On every published GitHub Release, opens the "Add-on registration" issue
-# on nvaccess/addon-datastore (the same form used for manual submissions:
-# https://github.com/nvaccess/addon-datastore/issues/new?template=registerAddon.yml).
-# Once opened with the autoSubmissionFromIssue label, NV Access's own
-# automation reads the manifest inside the downloaded .nvda-addon, generates
-# the store metadata, and opens a PR — no manual "remember to submit" step.
+# On every published GitHub Release, computes the pre-filled "Add-on
+# registration" form URL for nvaccess/addon-datastore and prints it in the
+# workflow run summary, so submitting an update is a single click instead of
+# hand-typing the download URL, source URL, publisher, channel and license
+# fields every time.
 #
-# Requires a one-time setup step that this workflow cannot do on its own:
-# create a GitHub Personal Access Token with `repo` scope (or fine-grained
-# "Issues: write" on nvaccess/addon-datastore) and add it as a repository
-# secret named ADDON_DATASTORE_TOKEN. The default GITHUB_TOKEN only has
-# permissions inside this repo, so it cannot open issues on nvaccess'.
+# This does NOT open the issue automatically. NV Access's merge automation
+# only fires for issues carrying the `autoSubmissionFromIssue` label
+# (https://github.com/nvaccess/addon-datastore/labels/autoSubmissionFromIssue),
+# and GitHub only auto-applies a form's declared label when the form is
+# actually submitted through the GitHub web UI — issues opened via the API
+# (as this workflow would have to do) are created unlabeled, and we don't
+# have collaborator access on nvaccess/addon-datastore to add the label
+# ourselves after the fact. (Confirmed the hard way: see the closed,
+# unlabeled issue from the v1.1.0 submission.) So the click is unavoidable
+# unless NV Access changes how the intake works.
 #
-#   gh secret set ADDON_DATASTORE_TOKEN --repo ChristosBouronikos/NVDApluginAtlasTI
-#
-# You remain an approved submitter for the "atlastiAccessibility" add-on id,
-# so submissions from this workflow should auto-merge after NV Access's
-# automated validation, without another manual review wait.
+# To submit: open this run's Summary tab and click the "Add-on Store
+# submission link" — everything will already be filled in.
 
 on:
   release:
     types: [published]
 
 jobs:
-  submit:
+  prepare:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
       - name: Resolve release asset URL
         id: asset
         env:
@@ -48,45 +47,24 @@ jobs:
           downloadUrl="$(gh api "$url" --jq '.browser_download_url')"
           echo "downloadUrl=$downloadUrl" >> "$GITHUB_OUTPUT"
 
-      - name: Open Add-on Store submission issue
-        env:
-          GH_TOKEN: ${{ secrets.ADDON_DATASTORE_TOKEN }}
+      - name: Build pre-filled submission link
         run: |
           set -euo pipefail
-          if [[ -z "${GH_TOKEN:-}" ]]; then
-            echo "::error::ADDON_DATASTORE_TOKEN secret is not set. See the comment at the top of this workflow file for setup steps." >&2
-            exit 1
-          fi
+          python3 - <<'PYEOF' >> "$GITHUB_STEP_SUMMARY"
+          from urllib.parse import urlencode
 
-          body=$(cat <<EOF
-          ### Download URL
-
-          ${{ steps.asset.outputs.downloadUrl }}
-
-          ### Source URL
-
-          https://github.com/${{ github.repository }}
-
-          ### Publisher
-
-          Christos Bouronikos
-
-          ### Channel
-
-          stable
-
-          ### License Name
-
-          GPL v2
-
-          ### License URL
-
-          https://www.gnu.org/licenses/gpl-2.0.html
-          EOF
-          )
-
-          gh issue create \
-            --repo nvaccess/addon-datastore \
-            --title "[Submit add-on]: atlastiAccessibility ${{ github.event.release.tag_name }}" \
-            --label autoSubmissionFromIssue \
-            --body "$body"
+          params = {
+              "template": "registerAddon.yml",
+              "title": "[Submit add-on]: atlastiAccessibility ${{ github.event.release.tag_name }}",
+              "download-url": "${{ steps.asset.outputs.downloadUrl }}",
+              "source-url": "https://github.com/${{ github.repository }}",
+              "publisher": "Christos Bouronikos",
+              "channel": "stable",
+              "license-name": "GPL v2",
+              "license-url": "https://www.gnu.org/licenses/gpl-2.0.html",
+          }
+          url = "https://github.com/nvaccess/addon-datastore/issues/new?" + urlencode(params)
+          print("## Add-on Store submission link\n")
+          print(f"[Click to submit {('${{ github.event.release.tag_name }}')} to the NVDA Add-on Store]({url})\n")
+          print("All fields are pre-filled. Review, then click **Submit new issue** on the GitHub form.\n")
+          PYEOF
