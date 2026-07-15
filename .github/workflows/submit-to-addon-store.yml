@@ -23,10 +23,17 @@ name: Prepare NVDA Add-on Store submission
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to build the submission link for"
+        required: true
 
 jobs:
   prepare:
     runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
     steps:
       - name: Resolve release asset URL
         id: asset
@@ -37,12 +44,12 @@ jobs:
           # `.url` from `gh release view --json assets` is already the public
           # browser_download_url (there's a separate `.apiUrl` for the API
           # metadata endpoint) - use it directly, don't re-fetch it.
-          downloadUrl="$(gh release view "${{ github.event.release.tag_name }}" \
+          downloadUrl="$(gh release view "$RELEASE_TAG" \
             --repo "${{ github.repository }}" \
             --json assets \
             --jq '.assets[] | select(.name | endswith(".nvda-addon")) | .url' | head -n1)"
           if [[ -z "$downloadUrl" ]]; then
-            echo "No .nvda-addon asset found on release ${{ github.event.release.tag_name }}" >&2
+            echo "No .nvda-addon asset found on release $RELEASE_TAG" >&2
             exit 1
           fi
           echo "downloadUrl=$downloadUrl" >> "$GITHUB_OUTPUT"
@@ -50,12 +57,12 @@ jobs:
       - name: Build pre-filled submission link
         run: |
           set -euo pipefail
-          python3 - <<'PYEOF' >> "$GITHUB_STEP_SUMMARY"
+          python3 - <<PYEOF >> "$GITHUB_STEP_SUMMARY"
           from urllib.parse import urlencode
 
           params = {
               "template": "registerAddon.yml",
-              "title": "[Submit add-on]: atlastiAccessibility ${{ github.event.release.tag_name }}",
+              "title": "[Submit add-on]: atlastiAccessibility $RELEASE_TAG",
               "download-url": "${{ steps.asset.outputs.downloadUrl }}",
               "source-url": "https://github.com/${{ github.repository }}",
               "publisher": "Christos Bouronikos",
@@ -65,6 +72,6 @@ jobs:
           }
           url = "https://github.com/nvaccess/addon-datastore/issues/new?" + urlencode(params)
           print("## Add-on Store submission link\n")
-          print(f"[Click to submit {('${{ github.event.release.tag_name }}')} to the NVDA Add-on Store]({url})\n")
+          print(f"[Click to submit $RELEASE_TAG to the NVDA Add-on Store]({url})\n")
           print("All fields are pre-filled. Review, then click **Submit new issue** on the GitHub form.\n")
           PYEOF
