@@ -16,6 +16,10 @@
 ### Changed / Αλλαγές
 - Panel navigation shortcuts now use NVDA+Ctrl+Alt+...
 - Reading shortcuts now use NVDA+Ctrl+Alt+Shift+...
+- Bumped `lastTestedNVDAVersion` to 2026.1.1 (NVDA 2026.1 reset add-on API compatibility; the previous 2025.3.0 value marked this add-on incompatible and hidden by default in the Add-on Store)
+
+### Fixed / Διορθώθηκαν
+- Panel navigation cache is now cleared on foreground window change, so a stale cached panel reference from a previous Atlas.ti window/project can no longer be reused
 
 ---
 

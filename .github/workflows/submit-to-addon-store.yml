@@ -1,0 +1,70 @@
+name: Prepare NVDA Add-on Store submission
+
+# On every published GitHub Release, computes the pre-filled "Add-on
+# registration" form URL for nvaccess/addon-datastore and prints it in the
+# workflow run summary, so submitting an update is a single click instead of
+# hand-typing the download URL, source URL, publisher, channel and license
+# fields every time.
+#
+# This does NOT open the issue automatically. NV Access's merge automation
+# only fires for issues carrying the `autoSubmissionFromIssue` label
+# (https://github.com/nvaccess/addon-datastore/labels/autoSubmissionFromIssue),
+# and GitHub only auto-applies a form's declared label when the form is
+# actually submitted through the GitHub web UI — issues opened via the API
+# (as this workflow would have to do) are created unlabeled, and we don't
+# have collaborator access on nvaccess/addon-datastore to add the label
+# ourselves after the fact. (Confirmed the hard way: see the closed,
+# unlabeled issue from the v1.1.0 submission.) So the click is unavoidable
+# unless NV Access changes how the intake works.
+#
+# To submit: open this run's Summary tab and click the "Add-on Store
+# submission link" — everything will already be filled in.
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve release asset URL
+        id: asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # `.url` from `gh release view --json assets` is already the public
+          # browser_download_url (there's a separate `.apiUrl` for the API
+          # metadata endpoint) - use it directly, don't re-fetch it.
+          downloadUrl="$(gh release view "${{ github.event.release.tag_name }}" \
+            --repo "${{ github.repository }}" \
+            --json assets \
+            --jq '.assets[] | select(.name | endswith(".nvda-addon")) | .url' | head -n1)"
+          if [[ -z "$downloadUrl" ]]; then
+            echo "No .nvda-addon asset found on release ${{ github.event.release.tag_name }}" >&2
+            exit 1
+          fi
+          echo "downloadUrl=$downloadUrl" >> "$GITHUB_OUTPUT"
+
+      - name: Build pre-filled submission link
+        run: |
+          set -euo pipefail
+          python3 - <<'PYEOF' >> "$GITHUB_STEP_SUMMARY"
+          from urllib.parse import urlencode
+
+          params = {
+              "template": "registerAddon.yml",
+              "title": "[Submit add-on]: atlastiAccessibility ${{ github.event.release.tag_name }}",
+              "download-url": "${{ steps.asset.outputs.downloadUrl }}",
+              "source-url": "https://github.com/${{ github.repository }}",
+              "publisher": "Christos Bouronikos",
+              "channel": "stable",
+              "license-name": "GPL v2",
+              "license-url": "https://www.gnu.org/licenses/gpl-2.0.html",
+          }
+          url = "https://github.com/nvaccess/addon-datastore/issues/new?" + urlencode(params)
+          print("## Add-on Store submission link\n")
+          print(f"[Click to submit {('${{ github.event.release.tag_name }}')} to the NVDA Add-on Store]({url})\n")
+          print("All fields are pre-filled. Review, then click **Submit new issue** on the GitHub form.\n")
+          PYEOF
