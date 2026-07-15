@@ -64,8 +64,8 @@ A NVDA screen reader add-on that enhances accessibility for [Atlas.ti](https://a
    - **Or** use: NVDA Menu - Tools - Add-on Store - Install from external source
 3. Restart NVDA when prompted
 
-### Method 2: From NVDA Add-on Store (Coming Soon)
-This add-on will be submitted to the official NVDA add-on store soon.
+### Method 2: From NVDA Add-on Store
+This add-on is available on the official NVDA Add-on Store: [Atlas.ti Accessibility on NVDA Add-on Store](https://addonstore.nvaccess.org/?channel=stable&language=en&apiVersion=2026.1.1&addonId=atlastiAccessibility)
 
 ## Testing Instructions
 
@@ -158,8 +158,8 @@ GNU GPL v2.0 - Attribution to original creator Christos Bouronikos required
    - **Ή** χρησιμοποιήστε: NVDA Μενού - Εργαλεία - Κατάστημα Πρόσθετων - Εγκατάσταση από εξωτερική πηγή
 3. Επανεκκινήστε το NVDA όταν σας ζητηθεί
 
-### Μέθοδος 2: Από το Κατάστημα NVDA (Σύντομα)
-Το πρόσθετο θα υποβληθεί στο επίσημο κατάστημα πρόσθετων του NVDA σύντομα.
+### Μέθοδος 2: Από το Κατάστημα NVDA
+Το πρόσθετο είναι διαθέσιμο στο επίσημο κατάστημα πρόσθετων του NVDA: [Atlas.ti Accessibility στο Κατάστημα Πρόσθετων NVDA](https://addonstore.nvaccess.org/?channel=stable&language=en&apiVersion=2026.1.1&addonId=atlastiAccessibility)
 
 ## Δοκιμές
 

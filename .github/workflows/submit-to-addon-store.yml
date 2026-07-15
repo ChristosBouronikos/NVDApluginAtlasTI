@@ -1,0 +1,92 @@
+name: Submit update to NVDA Add-on Store
+
+# On every published GitHub Release, opens the "Add-on registration" issue
+# on nvaccess/addon-datastore (the same form used for manual submissions:
+# https://github.com/nvaccess/addon-datastore/issues/new?template=registerAddon.yml).
+# Once opened with the autoSubmissionFromIssue label, NV Access's own
+# automation reads the manifest inside the downloaded .nvda-addon, generates
+# the store metadata, and opens a PR — no manual "remember to submit" step.
+#
+# Requires a one-time setup step that this workflow cannot do on its own:
+# create a GitHub Personal Access Token with `repo` scope (or fine-grained
+# "Issues: write" on nvaccess/addon-datastore) and add it as a repository
+# secret named ADDON_DATASTORE_TOKEN. The default GITHUB_TOKEN only has
+# permissions inside this repo, so it cannot open issues on nvaccess'.
+#
+#   gh secret set ADDON_DATASTORE_TOKEN --repo ChristosBouronikos/NVDApluginAtlasTI
+#
+# You remain an approved submitter for the "atlastiAccessibility" add-on id,
+# so submissions from this workflow should auto-merge after NV Access's
+# automated validation, without another manual review wait.
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve release asset URL
+        id: asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          url="$(gh release view "${{ github.event.release.tag_name }}" \
+            --repo "${{ github.repository }}" \
+            --json assets \
+            --jq '.assets[] | select(.name | endswith(".nvda-addon")) | .url' | head -n1)"
+          if [[ -z "$url" ]]; then
+            echo "No .nvda-addon asset found on release ${{ github.event.release.tag_name }}" >&2
+            exit 1
+          fi
+          # .url from `gh release view --json assets` is the API asset URL;
+          # resolve it to the public browser_download_url instead.
+          downloadUrl="$(gh api "$url" --jq '.browser_download_url')"
+          echo "downloadUrl=$downloadUrl" >> "$GITHUB_OUTPUT"
+
+      - name: Open Add-on Store submission issue
+        env:
+          GH_TOKEN: ${{ secrets.ADDON_DATASTORE_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${GH_TOKEN:-}" ]]; then
+            echo "::error::ADDON_DATASTORE_TOKEN secret is not set. See the comment at the top of this workflow file for setup steps." >&2
+            exit 1
+          fi
+
+          body=$(cat <<EOF
+          ### Download URL
+
+          ${{ steps.asset.outputs.downloadUrl }}
+
+          ### Source URL
+
+          https://github.com/${{ github.repository }}
+
+          ### Publisher
+
+          Christos Bouronikos
+
+          ### Channel
+
+          stable
+
+          ### License Name
+
+          GPL v2
+
+          ### License URL
+
+          https://www.gnu.org/licenses/gpl-2.0.html
+          EOF
+          )
+
+          gh issue create \
+            --repo nvaccess/addon-datastore \
+            --title "[Submit add-on]: atlastiAccessibility ${{ github.event.release.tag_name }}" \
+            --label autoSubmissionFromIssue \
+            --body "$body"

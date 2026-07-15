@@ -31,7 +31,7 @@ import controlTypes
 import addonHandler
 import re
 import weakref
-from scriptHandler import script, getLastScriptRepeatCount
+from scriptHandler import script
 from logHandler import log
 
 # Initialize translation support
@@ -118,6 +118,18 @@ class AppModule(appModuleHandler.AppModule):
     # EVENT HANDLERS
     # =========================================================================
     
+    def event_foreground(self, obj, nextHandler):
+        """Drop cached panel references when the foreground window changes.
+
+        A cached panel can stay "alive" (per weakref/isAlive) even after
+        Atlas.ti swaps projects or reopens a window, so it's no longer the
+        right target. Foreground change is the cheapest reliable signal we
+        have to invalidate it.
+        """
+        self._panelCache.clear()
+        self._lastPanel = None
+        nextHandler()
+
     def event_NVDAObject_init(self, obj):
         """Modify NVDA objects during initialization for better labeling."""
         # Handle unlabeled buttons

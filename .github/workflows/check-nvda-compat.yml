@@ -1,0 +1,28 @@
+name: Check NVDA compatibility metadata
+
+# Warns (via a job annotation) when addon/manifest.ini's lastTestedNVDAVersion
+# falls behind the latest stable NVDA API version. NVDA occasionally ships
+# API-breaking releases (e.g. 2026.1), which silently marks this add-on
+# "incompatible" and hides it from the Add-on Store for anyone on the newer
+# NVDA — this catches that before a user reports it.
+
+on:
+  pull_request:
+    paths:
+      - "addon/manifest.ini"
+  schedule:
+    # Every Monday 06:00 UTC, in case NVDA ships a new stable release
+    # without any local change to this repo.
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Compare lastTestedNVDAVersion against latest stable NVDA API version
+        run: python3 scripts/check_nvda_compat.py
