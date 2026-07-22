@@ -1,5 +1,9 @@
 name: Check NVDA compatibility metadata
 
+# Author: Christos Bouronikos <chrisbouronikos@gmail.com>
+# GitHub: https://github.com/ChristosBouronikos
+# Donations: https://paypal.me/christosbouronikos
+#
 # Warns (via a job annotation) when addon/manifest.ini's lastTestedNVDAVersion
 # falls behind the latest stable NVDA API version. NVDA occasionally ships
 # API-breaking releases (e.g. 2026.1), which silently marks this add-on

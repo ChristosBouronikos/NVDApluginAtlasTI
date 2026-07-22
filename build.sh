@@ -1,11 +1,12 @@
 #!/bin/bash
 # =============================================================================
 # Build script for Atlas.ti NVDA Add-on
-# Version: 1.1.0
+# Version: 1.3.0
 # =============================================================================
 # 
 # Author: Christos Bouronikos
 # Email: chrisbouronikos@gmail.com
+# GitHub: https://github.com/ChristosBouronikos
 # Donations: https://paypal.me/christosbouronikos
 #
 # Copyright (C) 2026 Christos Bouronikos
@@ -38,12 +39,25 @@ rm -f "$OUTPUT_FILE"
 echo "Creating add-on package: $OUTPUT_FILE"
 
 # Copy latest documentation to doc folders
+# Note: the repository files are README.md/CHANGELOG.md (uppercase). Using
+# the wrong case here works silently on case-insensitive filesystems (macOS,
+# Windows) but fails on case-sensitive ones (Linux CI runners), so match the
+# real filenames exactly.
+# README.md, CHANGELOG.md and the validation checklist are each a single
+# bilingual file (English section first, then Ελληνικά), so the same source
+# is intentionally installed as both the English and the Greek doc. Keep new
+# user-facing docs bilingual too rather than adding language-specific
+# sources, otherwise one language silently ships untranslated.
 echo "Updating documentation..."
 mkdir -p addon/doc/en addon/doc/el
-cp readme.md addon/doc/en/readme.md
-cp readme.md addon/doc/el/readme.md
-cp changelog.md addon/doc/en/changelog.md
-cp changelog.md addon/doc/el/changelog.md
+cp README.md addon/doc/en/readme.md
+cp README.md addon/doc/el/readme.md
+cp CHANGELOG.md addon/doc/en/changelog.md
+cp CHANGELOG.md addon/doc/el/changelog.md
+cp docs/windows_atlasti26_validation.md addon/doc/en/windows-validation.md
+cp docs/windows_atlasti26_validation.md addon/doc/el/windows-validation.md
+cp docs/atlasti26_ui_catalogue.json addon/doc/en/atlasti26-ui-catalogue.json
+cp docs/release_1.3.0.md addon/doc/en/release-1.3.0.md
 
 # Create the .nvda-addon file (it's just a zip with a different extension)
 (cd addon && zip -r "../$OUTPUT_FILE" \

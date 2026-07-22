@@ -1,5 +1,10 @@
 # Build script for Atlas.ti NVDA Add-on (Windows PowerShell)
 # Creates the .nvda-addon package (which is a zip file with special extension)
+#
+# Author: Christos Bouronikos
+# Email: chrisbouronikos@gmail.com
+# GitHub: https://github.com/ChristosBouronikos
+# Donations: https://paypal.me/christosbouronikos
 
 $ErrorActionPreference = "Stop"
 
@@ -31,12 +36,20 @@ Remove-Item -Path $TempDir -Recurse -Force -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Path $TempDir | Out-Null
 
 # Update documentation from root files
+# Note: the repository files are README.md/CHANGELOG.md (uppercase); Windows
+# is case-insensitive so this always worked here, but match the real
+# filenames anyway to stay consistent with build.sh (which runs on
+# case-sensitive Linux CI runners, where the wrong case fails silently).
 New-Item -ItemType Directory -Path "addon\\doc\\en" -Force | Out-Null
 New-Item -ItemType Directory -Path "addon\\doc\\el" -Force | Out-Null
-Copy-Item -Path "readme.md" -Destination "addon\\doc\\en\\readme.md" -Force
-Copy-Item -Path "readme.md" -Destination "addon\\doc\\el\\readme.md" -Force
-Copy-Item -Path "changelog.md" -Destination "addon\\doc\\en\\changelog.md" -Force
-Copy-Item -Path "changelog.md" -Destination "addon\\doc\\el\\changelog.md" -Force
+Copy-Item -Path "README.md" -Destination "addon\\doc\\en\\readme.md" -Force
+Copy-Item -Path "README.md" -Destination "addon\\doc\\el\\readme.md" -Force
+Copy-Item -Path "CHANGELOG.md" -Destination "addon\\doc\\en\\changelog.md" -Force
+Copy-Item -Path "CHANGELOG.md" -Destination "addon\\doc\\el\\changelog.md" -Force
+Copy-Item -Path "docs\\windows_atlasti26_validation.md" -Destination "addon\\doc\\en\\windows-validation.md" -Force
+Copy-Item -Path "docs\\windows_atlasti26_validation.md" -Destination "addon\\doc\\el\\windows-validation.md" -Force
+Copy-Item -Path "docs\\atlasti26_ui_catalogue.json" -Destination "addon\\doc\\en\\atlasti26-ui-catalogue.json" -Force
+Copy-Item -Path "docs\\release_1.3.0.md" -Destination "addon\\doc\\en\\release-1.3.0.md" -Force
 
 # Copy necessary files (addon contents) to temp root
 Copy-Item -Path "addon\\*" -Destination $TempDir -Recurse -Force

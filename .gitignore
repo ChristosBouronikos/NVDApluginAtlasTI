@@ -13,6 +13,10 @@ __pycache__/
 
 # NVDA Add-on builds
 *.nvda-addon
+SHA256SUMS
+
+# Stray/scratch analysis artifacts (not add-on source)
+/output/
 
 # macOS
 .DS_Store

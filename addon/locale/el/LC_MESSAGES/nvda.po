@@ -1,8 +1,9 @@
-# NVDA Add-on: Atlas.ti Accessibility v1.1
+# NVDA Add-on: Atlas.ti Accessibility v1.3
 # Greek Translation (Ελληνικά)
 # =============================================================================
 # Author: Christos Bouronikos
 # Email: chrisbouronikos@gmail.com
+# GitHub: https://github.com/ChristosBouronikos
 # Donations: https://paypal.me/christosbouronikos
 #
 # Copyright (C) 2026 Christos Bouronikos
@@ -11,10 +12,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: atlastiAccessibility 1.1.0\n"
+"Project-Id-Version: atlastiAccessibility 1.3.0\n"
 "Report-Msgid-Bugs-To: chrisbouronikos@gmail.com\n"
-"POT-Creation-Date: 2026-02-01 12:00+0200\n"
-"PO-Revision-Date: 2026-02-01 12:00+0200\n"
+"POT-Creation-Date: 2026-07-22 15:08+0300\n"
+"PO-Revision-Date: 2026-07-22 14:00+0300\n"
 "Last-Translator: Christos Bouronikos <chrisbouronikos@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -22,173 +23,644 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-# Script category
+#: addon/appModules/atlas.py:278 addon/globalPlugins/atlastiHelper.py:189
 msgid "Atlas.ti"
 msgstr "Atlas.ti"
 
-# Panel names
-msgid "Documents Panel"
-msgstr "Πίνακας Εγγράφων"
+#: addon/appModules/atlas.py:372
+#, python-brace-format
+msgid "shortcut {keys}"
+msgstr "συντόμευση {keys}"
 
-msgid "Codes Panel"
-msgstr "Πίνακας Κωδικών"
+#: addon/appModules/atlas.py:808
+msgid "Go to the Document Manager"
+msgstr "Μετάβαση στον Διαχειριστή Εγγράφων"
 
-msgid "Quotations Panel"
-msgstr "Πίνακας Αποσπασμάτων"
+#: addon/appModules/atlas.py:816
+msgid "Go to the Code Manager"
+msgstr "Μετάβαση στον Διαχειριστή Κωδικών"
 
-msgid "Memos Panel"
-msgstr "Πίνακας Σημειώσεων"
+#: addon/appModules/atlas.py:824
+msgid "Go to the Quotation Manager"
+msgstr "Μετάβαση στον Διαχειριστή Αποσπασμάτων"
 
-msgid "Project Navigator"
-msgstr "Περιήγηση Έργου"
+#: addon/appModules/atlas.py:832
+msgid "Go to the Memo Manager"
+msgstr "Μετάβαση στον Διαχειριστή Σημειωμάτων"
 
-# Button labels
-msgid "New Project"
-msgstr "Νέο Έργο"
+#: addon/appModules/atlas.py:840
+msgid "Go to the Network Manager"
+msgstr "Μετάβαση στον Διαχειριστή Δικτύων"
 
-msgid "Open Project"
-msgstr "Άνοιγμα Έργου"
+#: addon/appModules/atlas.py:848
+msgid "Go to the Link Manager"
+msgstr "Μετάβαση στον Διαχειριστή Συνδέσεων"
 
-msgid "Save Project"
-msgstr "Αποθήκευση Έργου"
+#: addon/appModules/atlas.py:856
+msgid "Go to the Project Navigator"
+msgstr "Μετάβαση στον Πλοηγό Έργου"
 
-msgid "Import Documents"
-msgstr "Εισαγωγή Εγγράφων"
+#: addon/appModules/atlas.py:864
+msgid "Go to the ribbon"
+msgstr "Μετάβαση στην κορδέλα"
 
-msgid "Export"
-msgstr "Εξαγωγή"
+#: addon/appModules/atlas.py:872
+msgid "Go to the margin area"
+msgstr "Μετάβαση στην περιοχή περιθωρίου"
 
-msgid "Create New Code"
-msgstr "Δημιουργία Νέου Κωδικού"
+#: addon/appModules/atlas.py:880
+msgid "Go to the working area"
+msgstr "Μετάβαση στην περιοχή εργασίας"
 
-msgid "Create New Memo"
-msgstr "Δημιουργία Νέας Σημείωσης"
+#: addon/appModules/atlas.py:888
+msgid "Go to the comment pane"
+msgstr "Μετάβαση στο πλαίσιο σχολίου"
 
-msgid "Create Quotation"
-msgstr "Δημιουργία Αποσπάσματος"
+#: addon/appModules/atlas.py:896
+msgid "Go to the side panel with groups and filters"
+msgstr "Μετάβαση στο πλαϊνό πλαίσιο ομάδων και φίλτρων"
 
-msgid "Search"
-msgstr "Αναζήτηση"
+#: addon/appModules/atlas.py:904
+msgid "Move to the next Atlas.ti panel"
+msgstr "Μετάβαση στον επόμενο πίνακα του Atlas.ti"
 
-msgid "Filter"
-msgstr "Φίλτρο"
+#: addon/appModules/atlas.py:912
+msgid "Move to the previous Atlas.ti panel"
+msgstr "Μετάβαση στον προηγούμενο πίνακα του Atlas.ti"
 
-# Panel navigation
-msgid "Jump to Documents panel"
-msgstr "Μετάβαση στον πίνακα Εγγράφων"
+#: addon/appModules/atlas.py:924
+msgid "Describe the focused Atlas.ti control in detail"
+msgstr "Λεπτομερής περιγραφή του εστιασμένου στοιχείου ελέγχου του Atlas.ti"
 
-msgid "Jump to Codes panel"
-msgstr "Μετάβαση στον πίνακα Κωδικών"
+#: addon/appModules/atlas.py:931
+msgid "Nothing is focused"
+msgstr "Δεν υπάρχει εστίαση σε κάποιο στοιχείο"
 
-msgid "Jump to Quotations panel"
-msgstr "Μετάβαση στον πίνακα Αποσπασμάτων"
+#: addon/appModules/atlas.py:954
+#, python-brace-format
+msgid "in {path}"
+msgstr "στο {path}"
 
-msgid "Jump to Memos panel"
-msgstr "Μετάβαση στον πίνακα Σημειώσεων"
+#: addon/appModules/atlas.py:958
+msgid "This control provides no information to the screen reader"
+msgstr "Αυτό το στοιχείο ελέγχου δεν παρέχει πληροφορίες στον αναγνώστη οθόνης"
 
-msgid "Jump to Project Navigator"
-msgstr "Μετάβαση στην Περιήγηση Έργου"
+#: addon/appModules/atlas.py:964
+msgid "Announce the current Atlas.ti panel"
+msgstr "Ανακοίνωση του τρέχοντος πίνακα του Atlas.ti"
 
-msgid "Documents"
-msgstr "Έγγραφα"
-
-msgid "Codes"
-msgstr "Κωδικοί"
-
-msgid "Quotations"
-msgstr "Αποσπάσματα"
-
-msgid "Memos"
-msgstr "Σημειώσεις"
-
-msgid "{panel} panel"
-msgstr "Πίνακας {panel}"
-
-# Reading helpers
-msgid "Read current code details"
-msgstr "Ανάγνωση λεπτομερειών τρέχοντος κωδικού"
-
-msgid "Read current quotation text"
-msgstr "Ανάγνωση κειμένου τρέχοντος αποσπάσματος"
-
-msgid "Read document information"
-msgstr "Ανάγνωση πληροφοριών εγγράφου"
-
-msgid "Announce current panel"
-msgstr "Αναγγελία τρέχοντος πίνακα"
-
-msgid "List available Atlas.ti shortcuts"
-msgstr "Λίστα διαθέσιμων συντομεύσεων Atlas.ti"
-
-msgid "No code selected or code information unavailable"
-msgstr "Δεν έχει επιλεγεί κωδικός ή οι πληροφορίες δεν είναι διαθέσιμες"
-
-msgid "No quotation selected or quotation text unavailable"
-msgstr "Δεν έχει επιλεγεί απόσπασμα ή το κείμενο δεν είναι διαθέσιμο"
-
-msgid "No document information available"
-msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες εγγράφου"
-
+#: addon/appModules/atlas.py:972
+#, python-brace-format
 msgid "Current panel: {panel}"
 msgstr "Τρέχων πίνακας: {panel}"
 
-msgid "Unable to determine current panel"
-msgstr "Αδυναμία προσδιορισμού τρέχοντος πίνακα"
+#: addon/appModules/atlas.py:978
+#, python-brace-format
+msgid "Panel unknown. Last panel reached with a command: {panel}"
+msgstr ""
+"Άγνωστος πίνακας. Τελευταίος πίνακας στον οποίο έγινε μετάβαση με εντολή: "
+"{panel}"
 
-msgid "Unnamed code"
-msgstr "Ανώνυμος κωδικός"
+#: addon/appModules/atlas.py:982
+msgid "Unable to determine the current panel"
+msgstr "Δεν ήταν δυνατός ο προσδιορισμός του τρέχοντος πίνακα"
 
+#: addon/appModules/atlas.py:986
+msgid "Read every column of the current row"
+msgstr "Ανάγνωση όλων των στηλών της τρέχουσας γραμμής"
+
+#: addon/appModules/atlas.py:994
+msgid "Focus is not on a list row"
+msgstr "Η εστίαση δεν βρίσκεται σε γραμμή λίστας"
+
+#: addon/appModules/atlas.py:1006
+msgid "This row has no readable content"
+msgstr "Αυτή η γραμμή δεν έχει αναγνώσιμο περιεχόμενο"
+
+#: addon/appModules/atlas.py:1012
+msgid "Report the item count and status bar of the current list"
+msgstr ""
+"Αναφορά του αριθμού στοιχείων και της γραμμής κατάστασης της τρέχουσας λίστας"
+
+#: addon/appModules/atlas.py:1026
+#, python-brace-format
+msgid "{count} items"
+msgstr "{count} στοιχεία"
+
+#: addon/appModules/atlas.py:1034
+msgid "No status information available"
+msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες κατάστασης"
+
+#: addon/appModules/atlas.py:1040
+msgid "List the controls on the current ribbon tab"
+msgstr "Λίστα στοιχείων ελέγχου της τρέχουσας καρτέλας της κορδέλας"
+
+#: addon/appModules/atlas.py:1048
+msgid "The ribbon could not be found"
+msgstr "Δεν ήταν δυνατή η εύρεση της κορδέλας"
+
+#: addon/appModules/atlas.py:1074
+msgid "No ribbon controls are exposed to the screen reader"
+msgstr "Δεν εκτίθενται στοιχεία ελέγχου της κορδέλας στον αναγνώστη οθόνης"
+
+#: addon/appModules/atlas.py:1078
+msgid "Atlas.ti ribbon"
+msgstr "Κορδέλα Atlas.ti"
+
+#: addon/appModules/atlas.py:1081
+#, python-brace-format
+msgid "Atlas.ti ribbon: {tab}"
+msgstr "Κορδέλα Atlas.ti: {tab}"
+
+#: addon/appModules/atlas.py:1086
+msgid "Read the codes and memos in the margin area"
+msgstr "Ανάγνωση κωδικών και σημειωμάτων στην περιοχή περιθωρίου"
+
+#: addon/appModules/atlas.py:1094
+msgid "The margin area could not be found. Open a document first."
+msgstr ""
+"Δεν ήταν δυνατή η εύρεση της περιοχής περιθωρίου. Ανοίξτε πρώτα ένα έγγραφο."
+
+#: addon/appModules/atlas.py:1105
+msgid "The margin area is empty or not readable"
+msgstr "Η περιοχή περιθωρίου είναι κενή ή μη αναγνώσιμη"
+
+#: addon/appModules/atlas.py:1108
+msgid "Atlas.ti margin area"
+msgstr "Περιοχή περιθωρίου Atlas.ti"
+
+#: addon/appModules/atlas.py:1112
+msgid "Read the comment or preview pane"
+msgstr "Ανάγνωση του πλαισίου σχολίου ή προεπισκόπησης"
+
+#: addon/appModules/atlas.py:1120
+msgid "No comment or preview pane was found"
+msgstr "Δεν βρέθηκε πλαίσιο σχολίου ή προεπισκόπησης"
+
+#: addon/appModules/atlas.py:1130
+msgid "The comment pane is empty"
+msgstr "Το πλαίσιο σχολίου είναι κενό"
+
+#: addon/appModules/atlas.py:1136
+msgid "Describe the current chart or diagram, and try to read its contents"
+msgstr ""
+"Περιγραφή του τρέχοντος γραφήματος ή διαγράμματος, με προσπάθεια ανάγνωσης "
+"του περιεχομένου του"
+
+#: addon/appModules/atlas.py:1148 addon/appModules/atlas.py:1184
+msgid "The focused control is not a chart, diagram, or visual-only view."
+msgstr ""
+"Το εστιασμένο στοιχείο δεν είναι γράφημα, διάγραμμα ή προβολή μόνο-οπτικού "
+"περιεχομένου."
+
+#: addon/appModules/atlas.py:1155
+#, python-brace-format
+msgid "{chart}: accessible content found"
+msgstr "{chart}: βρέθηκε προσβάσιμο περιεχόμενο"
+
+#: addon/appModules/atlas.py:1164
+msgid ""
+"Atlas.ti does not expose the individual contents of this element to the "
+"screen reader."
+msgstr ""
+"Το Atlas.ti δεν εκθέτει τα επιμέρους περιεχόμενα αυτού του στοιχείου στον "
+"αναγνώστη οθόνης."
+
+#: addon/appModules/atlas.py:1169
+#, python-brace-format
+msgid ""
+"For the same data as readable text, use {alternative}. Press "
+"NVDA+Ctrl+Alt+Shift+J to jump there now."
+msgstr ""
+"Για τα ίδια δεδομένα ως αναγνώσιμο κείμενο, χρησιμοποιήστε: {alternative}. "
+"Πατήστε NVDA+Ctrl+Alt+Shift+J για άμεση μετάβαση εκεί."
+
+#: addon/appModules/atlas.py:1176
+msgid "Jump to the accessible data view of the current chart or diagram"
+msgstr ""
+"Μετάβαση στην προσβάσιμη προβολή δεδομένων του τρέχοντος γραφήματος ή "
+"διαγράμματος"
+
+#: addon/appModules/atlas.py:1189
+#, python-brace-format
+msgid "No accessible alternative is known for {chart}."
+msgstr "Δεν είναι γνωστή προσβάσιμη εναλλακτική για: {chart}."
+
+#: addon/appModules/atlas.py:1197
+msgid "Read the focused code"
+msgstr "Ανάγνωση του εστιασμένου κωδικού"
+
+#: addon/appModules/atlas.py:1204
+#, python-brace-format
 msgid "Code: {name}"
 msgstr "Κωδικός: {name}"
 
-msgid "Quotation: {text}"
-msgstr "Απόσπασμα: {text}"
+#: addon/appModules/atlas.py:1206
+msgid "Focus is not on a code. Open the Code Manager or the code list first."
+msgstr ""
+"Η εστίαση δεν βρίσκεται σε κωδικό. Ανοίξτε πρώτα τον Διαχειριστή Κωδικών ή "
+"τη λίστα κωδικών."
 
+#: addon/appModules/atlas.py:1211
+msgid "Read the focused quotation"
+msgstr "Ανάγνωση του εστιασμένου αποσπάσματος"
+
+#: addon/appModules/atlas.py:1218
+#, python-brace-format
+msgid "Quotation: {name}"
+msgstr "Απόσπασμα: {name}"
+
+#: addon/appModules/atlas.py:1220
+msgid ""
+"Focus is not on a quotation. Open the Quotation Manager or the Quotation "
+"Reader first."
+msgstr ""
+"Η εστίαση δεν βρίσκεται σε απόσπασμα. Ανοίξτε πρώτα τον Διαχειριστή "
+"Αποσπασμάτων ή τον Αναγνώστη Αποσπασμάτων."
+
+#: addon/appModules/atlas.py:1226
+msgid "Read the current document"
+msgstr "Ανάγνωση του τρέχοντος εγγράφου"
+
+#: addon/appModules/atlas.py:1234 addon/appModules/atlas.py:1239
+#, python-brace-format
 msgid "Document: {name}"
 msgstr "Έγγραφο: {name}"
 
-msgid "Current context: {name}"
-msgstr "Τρέχον πλαίσιο: {name}"
+#: addon/appModules/atlas.py:1245
+#, python-brace-format
+msgid "No document identified. Window title: {name}"
+msgstr "Δεν εντοπίστηκε έγγραφο. Τίτλος παραθύρου: {name}"
 
-msgid "Trying to navigate to {panel}. Use Atlas.ti's View menu if this doesn't work."
-msgstr "Προσπάθεια μετάβασης σε {panel}. Χρησιμοποιήστε το μενού Προβολή αν δεν λειτουργεί."
+#: addon/appModules/atlas.py:1249
+msgid "No document information available"
+msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες εγγράφου"
 
-msgid "Could not navigate to {panel} panel"
-msgstr "Αδυναμία μετάβασης στον πίνακα {panel}"
+#: addon/appModules/atlas.py:1257
+msgid "Show the Atlas.ti term glossary in English and Greek"
+msgstr "Εμφάνιση του γλωσσαρίου όρων Atlas.ti στα Αγγλικά και Ελληνικά"
 
-# Shortcut help
-msgid "Panel Navigation:"
-msgstr "Πλοήγηση Πινάκων:"
+#: addon/appModules/atlas.py:1267
+msgid "Ribbon tabs"
+msgstr "Καρτέλες κορδέλας"
 
-msgid "NVDA+Ctrl+Alt+D: Documents"
-msgstr "NVDA+Ctrl+Alt+D: Έγγραφα"
+#: addon/appModules/atlas.py:1269
+msgid "Managers"
+msgstr "Διαχειριστές"
 
-msgid "NVDA+Ctrl+Alt+C: Codes"
-msgstr "NVDA+Ctrl+Alt+C: Κωδικοί"
+#: addon/appModules/atlas.py:1271
+msgid "Windows and tools"
+msgstr "Παράθυρα και εργαλεία"
 
-msgid "NVDA+Ctrl+Alt+Q: Quotations"
-msgstr "NVDA+Ctrl+Alt+Q: Αποσπάσματα"
+#: addon/appModules/atlas.py:1273
+msgid "Panels and areas"
+msgstr "Πίνακες και περιοχές"
 
-msgid "NVDA+Ctrl+Alt+M: Memos"
-msgstr "NVDA+Ctrl+Alt+M: Σημειώσεις"
+#: addon/appModules/atlas.py:1275
+msgid "Entity types"
+msgstr "Τύποι οντοτήτων"
 
-msgid "NVDA+Ctrl+Alt+P: Project Navigator"
-msgstr "NVDA+Ctrl+Alt+P: Περιήγηση Έργου"
+#: addon/appModules/atlas.py:1277
+msgid "Buttons and commands"
+msgstr "Κουμπιά και εντολές"
 
-msgid "Reading:"
-msgstr "Ανάγνωση:"
+#: addon/appModules/atlas.py:1279
+msgid "List columns"
+msgstr "Στήλες λίστας"
 
-msgid "NVDA+Ctrl+Alt+Shift+C: Read code"
-msgstr "NVDA+Ctrl+Alt+Shift+C: Κωδικός"
+#: addon/appModules/atlas.py:1281
+msgid "View options"
+msgstr "Επιλογές προβολής"
 
-msgid "NVDA+Ctrl+Alt+Shift+Q: Read quotation"
-msgstr "NVDA+Ctrl+Alt+Shift+Q: Απόσπασμα"
+#: addon/appModules/atlas.py:1283
+msgid "Query operators"
+msgstr "Τελεστές ερωτημάτων"
 
-msgid "NVDA+Ctrl+Alt+Shift+D: Read document"
-msgstr "NVDA+Ctrl+Alt+Shift+D: Έγγραφο"
+#: addon/appModules/atlas.py:1285
+msgid "Dialogs"
+msgstr "Παράθυρα διαλόγου"
 
-msgid "NVDA+Ctrl+Alt+Shift+P: Current panel"
-msgstr "NVDA+Ctrl+Alt+Shift+P: Τρέχων πίνακας"
+#: addon/appModules/atlas.py:1287
+msgid "Fields"
+msgstr "Πεδία"
 
-msgid "NVDA+Ctrl+Alt+Shift+H: This help"
-msgstr "NVDA+Ctrl+Alt+Shift+H: Βοήθεια"
+#: addon/appModules/atlas.py:1305
+msgid "Atlas.ti glossary"
+msgstr "Γλωσσάρι Atlas.ti"
+
+#: addon/appModules/atlas.py:1309
+msgid "Show all Atlas.ti add-on commands"
+msgstr "Εμφάνιση όλων των εντολών της πρόσθετης λειτουργίας Atlas.ti"
+
+#: addon/appModules/atlas.py:1315
+msgid "PANEL NAVIGATION"
+msgstr "ΠΛΟΗΓΗΣΗ ΠΙΝΑΚΩΝ"
+
+#: addon/appModules/atlas.py:1317
+msgid "NVDA+Control+Alt+D: Document Manager"
+msgstr "NVDA+Control+Alt+D: Διαχειριστής Εγγράφων"
+
+#: addon/appModules/atlas.py:1318
+msgid "NVDA+Control+Alt+C: Code Manager"
+msgstr "NVDA+Control+Alt+C: Διαχειριστής Κωδικών"
+
+#: addon/appModules/atlas.py:1319
+msgid "NVDA+Control+Alt+Q: Quotation Manager"
+msgstr "NVDA+Control+Alt+Q: Διαχειριστής Αποσπασμάτων"
+
+#: addon/appModules/atlas.py:1320
+msgid "NVDA+Control+Alt+M: Memo Manager"
+msgstr "NVDA+Control+Alt+M: Διαχειριστής Σημειωμάτων"
+
+#: addon/appModules/atlas.py:1321
+msgid "NVDA+Control+Alt+N: Network Manager"
+msgstr "NVDA+Control+Alt+N: Διαχειριστής Δικτύων"
+
+#: addon/appModules/atlas.py:1322
+msgid "NVDA+Control+Alt+L: Link Manager"
+msgstr "NVDA+Control+Alt+L: Διαχειριστής Συνδέσεων"
+
+#: addon/appModules/atlas.py:1323
+msgid "NVDA+Control+Alt+P: Project Navigator"
+msgstr "NVDA+Control+Alt+P: Πλοηγός Έργου"
+
+#: addon/appModules/atlas.py:1324
+msgid "NVDA+Control+Alt+R: Ribbon"
+msgstr "NVDA+Control+Alt+R: Κορδέλα"
+
+#: addon/appModules/atlas.py:1325
+msgid "NVDA+Control+Alt+A: Margin area"
+msgstr "NVDA+Control+Alt+A: Περιοχή περιθωρίου"
+
+#: addon/appModules/atlas.py:1326
+msgid "NVDA+Control+Alt+W: Working area"
+msgstr "NVDA+Control+Alt+W: Περιοχή εργασίας"
+
+#: addon/appModules/atlas.py:1327
+msgid "NVDA+Control+Alt+E: Comment pane"
+msgstr "NVDA+Control+Alt+E: Πλαίσιο σχολίου"
+
+#: addon/appModules/atlas.py:1328
+msgid "NVDA+Control+Alt+S: Side panel"
+msgstr "NVDA+Control+Alt+S: Πλαϊνό πλαίσιο"
+
+#: addon/appModules/atlas.py:1329
+msgid "NVDA+Control+Alt+Page down: Next panel"
+msgstr "NVDA+Control+Alt+Page down: Επόμενος πίνακας"
+
+#: addon/appModules/atlas.py:1330
+msgid "NVDA+Control+Alt+Page up: Previous panel"
+msgstr "NVDA+Control+Alt+Page up: Προηγούμενος πίνακας"
+
+#: addon/appModules/atlas.py:1333
+msgid "READING"
+msgstr "ΑΝΑΓΝΩΣΗ"
+
+#: addon/appModules/atlas.py:1334
+msgid "NVDA+Control+Alt+Shift+E: Describe the focused control"
+msgstr "NVDA+Control+Alt+Shift+E: Περιγραφή του εστιασμένου στοιχείου"
+
+#: addon/appModules/atlas.py:1335
+msgid "NVDA+Control+Alt+Shift+P: Current panel"
+msgstr "NVDA+Control+Alt+Shift+P: Τρέχων πίνακας"
+
+#: addon/appModules/atlas.py:1336
+msgid "NVDA+Control+Alt+Shift+R: All columns of the current row"
+msgstr "NVDA+Control+Alt+Shift+R: Όλες οι στήλες της τρέχουσας γραμμής"
+
+#: addon/appModules/atlas.py:1337
+msgid "NVDA+Control+Alt+Shift+S: Item count and status bar"
+msgstr "NVDA+Control+Alt+Shift+S: Αριθμός στοιχείων και γραμμή κατάστασης"
+
+#: addon/appModules/atlas.py:1338
+msgid "NVDA+Control+Alt+Shift+T: Controls on the current ribbon tab"
+msgstr ""
+"NVDA+Control+Alt+Shift+T: Στοιχεία ελέγχου της τρέχουσας καρτέλας κορδέλας"
+
+#: addon/appModules/atlas.py:1339
+msgid "NVDA+Control+Alt+Shift+A: Margin area contents"
+msgstr "NVDA+Control+Alt+Shift+A: Περιεχόμενα περιοχής περιθωρίου"
+
+#: addon/appModules/atlas.py:1340
+msgid "NVDA+Control+Alt+Shift+N: Comment or preview pane"
+msgstr "NVDA+Control+Alt+Shift+N: Πλαίσιο σχολίου ή προεπισκόπησης"
+
+#: addon/appModules/atlas.py:1341
+msgid "NVDA+Control+Alt+Shift+V: Describe the current chart or diagram"
+msgstr ""
+"NVDA+Control+Alt+Shift+V: Περιγραφή του τρέχοντος γραφήματος ή διαγράμματος"
+
+#: addon/appModules/atlas.py:1342
+msgid "NVDA+Control+Alt+Shift+J: Jump to the accessible data view of a chart"
+msgstr ""
+"NVDA+Control+Alt+Shift+J: Μετάβαση στην προσβάσιμη προβολή δεδομένων ενός "
+"γραφήματος"
+
+#: addon/appModules/atlas.py:1343
+msgid "NVDA+Control+Alt+Shift+C: Focused code"
+msgstr "NVDA+Control+Alt+Shift+C: Εστιασμένος κωδικός"
+
+#: addon/appModules/atlas.py:1344
+msgid "NVDA+Control+Alt+Shift+Q: Focused quotation"
+msgstr "NVDA+Control+Alt+Shift+Q: Εστιασμένο απόσπασμα"
+
+#: addon/appModules/atlas.py:1345
+msgid "NVDA+Control+Alt+Shift+D: Current document"
+msgstr "NVDA+Control+Alt+Shift+D: Τρέχον έγγραφο"
+
+#: addon/appModules/atlas.py:1348
+msgid "LANGUAGE AND HELP"
+msgstr "ΓΛΩΣΣΑ ΚΑΙ ΒΟΗΘΕΙΑ"
+
+#: addon/appModules/atlas.py:1349
+msgid "NVDA+Control+Alt+Shift+G: Glossary of Atlas.ti terms"
+msgstr "NVDA+Control+Alt+Shift+G: Γλωσσάρι όρων Atlas.ti"
+
+#: addon/appModules/atlas.py:1350
+msgid "NVDA+Control+Alt+Shift+L: Switch between English and Greek"
+msgstr "NVDA+Control+Alt+Shift+L: Εναλλαγή μεταξύ Αγγλικών και Ελληνικών"
+
+#: addon/appModules/atlas.py:1351
+msgid "NVDA+Control+Alt+Shift+H: This command list"
+msgstr "NVDA+Control+Alt+Shift+H: Αυτή η λίστα εντολών"
+
+#: addon/appModules/atlas.py:1352
+msgid "NVDA+Control+Alt+Shift+I: Log diagnostic information"
+msgstr "NVDA+Control+Alt+Shift+I: Καταγραφή διαγνωστικών πληροφοριών"
+
+#: addon/appModules/atlas.py:1353
+msgid "NVDA+Control+Alt+Shift+U: Privacy-filtered UI tree capture"
+msgstr ""
+"NVDA+Control+Alt+Shift+U: Καταγραφή δέντρου διεπαφής με φίλτρο απορρήτου"
+
+#: addon/appModules/atlas.py:1356
+msgid "ATLAS.TI SHORTCUTS"
+msgstr "ΣΥΝΤΟΜΕΥΣΕΙΣ ATLAS.TI"
+
+#: addon/appModules/atlas.py:1357
+msgid "Control+J: Apply codes to the selected segment"
+msgstr "Control+J: Εφαρμογή κωδικών στο επιλεγμένο τμήμα"
+
+#: addon/appModules/atlas.py:1358
+msgid "Control+K: Create new codes"
+msgstr "Control+K: Δημιουργία νέων κωδικών"
+
+#: addon/appModules/atlas.py:1359
+msgid "Control+S: Save the project"
+msgstr "Control+S: Αποθήκευση του έργου"
+
+#: addon/appModules/atlas.py:1362
+msgid "Atlas.ti accessibility commands"
+msgstr "Εντολές προσβασιμότητας Atlas.ti"
+
+#: addon/appModules/atlas.py:1366
+msgid "Switch the add-on speech language between English and Greek"
+msgstr ""
+"Εναλλαγή της γλώσσας ομιλίας της πρόσθετης λειτουργίας μεταξύ Αγγλικών και "
+"Ελληνικών"
+
+#: addon/appModules/atlas.py:1380
+msgid "Speech language: automatic"
+msgstr "Γλώσσα ομιλίας: αυτόματη"
+
+#: addon/appModules/atlas.py:1383
+msgid "Speech language: Greek"
+msgstr "Γλώσσα ομιλίας: Ελληνικά"
+
+#: addon/appModules/atlas.py:1386
+msgid "Speech language: English"
+msgstr "Γλώσσα ομιλίας: Αγγλικά"
+
+#: addon/appModules/atlas.py:1391
+#, python-brace-format
+msgid "Atlas.ti interface language: {language}"
+msgstr "Γλώσσα διεπαφής Atlas.ti: {language}"
+
+#: addon/appModules/atlas.py:1397
+msgid "Write diagnostic information about the focused control to the NVDA log"
+msgstr ""
+"Καταγραφή διαγνωστικών πληροφοριών για το εστιασμένο στοιχείο στο αρχείο "
+"καταγραφής του NVDA"
+
+#: addon/appModules/atlas.py:1416
+msgid "Diagnostic information written to the NVDA log"
+msgstr ""
+"Οι διαγνωστικές πληροφορίες καταγράφηκαν στο αρχείο καταγραφής του NVDA"
+
+#: addon/appModules/atlas.py:1479
+msgid "Capture the privacy-filtered ATLAS.ti control tree in the NVDA log"
+msgstr ""
+"Καταγραφή του δέντρου στοιχείων ελέγχου του ATLAS.ti με φίλτρο απορρήτου στο "
+"αρχείο καταγραφής του NVDA"
+
+#: addon/appModules/atlas.py:1486
+msgid ""
+"UI tree capture is disabled. Enable privacy-filtered UI tree capture in NVDA "
+"Settings, Atlas.ti."
+msgstr ""
+"Η καταγραφή του δέντρου διεπαφής είναι απενεργοποιημένη. Ενεργοποιήστε την "
+"καταγραφή δέντρου διεπαφής με φίλτρο απορρήτου στις Ρυθμίσεις NVDA, Atlas.ti."
+
+#: addon/appModules/atlas.py:1497
+#, python-brace-format
+msgid "Captured {count} controls in the NVDA log"
+msgstr "Καταγράφηκαν {count} στοιχεία ελέγχου στο αρχείο καταγραφής του NVDA"
+
+#: addon/appModules/atlas.py:1531
+#, python-brace-format
+msgid "{panel} was not found. It may be closed; open it from the Home tab."
+msgstr ""
+"Δεν βρέθηκε: {panel}. Ίσως είναι κλειστό· ανοίξτε το από την καρτέλα Αρχική."
+
+#: addon/appModules/atlas.py:1541
+#, python-brace-format
+msgid "Could not move to {panel}"
+msgstr "Δεν ήταν δυνατή η μετάβαση στο {panel}"
+
+#: addon/appModules/atlas.py:1567
+#, python-brace-format
+msgid "Warning: {view} is active. {concept}"
+msgstr "Προσοχή: {view} είναι ενεργή. {concept}"
+
+#: addon/appModules/atlas.py:1697
+#, python-brace-format
+msgid "{panel} could not take focus"
+msgstr "Το {panel} δεν μπόρεσε να λάβει εστίαση"
+
+#: addon/appModules/atlas.py:1700
+#, python-brace-format
+msgid "{panel}, navigator object moved. Focus did not change."
+msgstr "{panel}, το αντικείμενο πλοήγησης μετακινήθηκε. Η εστίαση δεν άλλαξε."
+
+#: addon/appModules/atlas.py:1754
+msgid "No other Atlas.ti panel was found"
+msgstr "Δεν βρέθηκε άλλος πίνακας Atlas.ti"
+
+#: addon/appModules/atlas.py:1784
+msgid "The focused item has no name"
+msgstr "Το εστιασμένο στοιχείο δεν έχει όνομα"
+
+#: addon/appModules/atlas.py:1887 addon/globalPlugins/atlastiHelper.py:202
+msgid "English"
+msgstr "Αγγλικά"
+
+#: addon/appModules/atlas.py:1889
+msgid "German"
+msgstr "Γερμανικά"
+
+#: addon/appModules/atlas.py:1891
+msgid "Spanish"
+msgstr "Ισπανικά"
+
+#: addon/appModules/atlas.py:1893
+msgid "Portuguese"
+msgstr "Πορτογαλικά"
+
+#: addon/appModules/atlas.py:1895
+msgid "Simplified Chinese"
+msgstr "Απλοποιημένα Κινέζικα"
+
+#: addon/appModules/atlas.py:1897 addon/globalPlugins/atlastiHelper.py:204
+msgid "Greek"
+msgstr "Ελληνικά"
+
+#: addon/globalPlugins/atlastiHelper.py:197
+msgid "&Speech language:"
+msgstr "&Γλώσσα ομιλίας:"
+
+#: addon/globalPlugins/atlastiHelper.py:200
+msgid "Follow NVDA's language"
+msgstr "Ακολούθηση της γλώσσας του NVDA"
+
+#: addon/globalPlugins/atlastiHelper.py:218
+msgid "Speak the &original label after a translated one"
+msgstr "Εκφώνηση της &αρχικής ετικέτας μετά από μια μεταφρασμένη"
+
+#: addon/globalPlugins/atlastiHelper.py:224
+msgid "&Translate recognised Atlas.ti controls into the speech language"
+msgstr ""
+"&Μετάφραση των αναγνωρισμένων στοιχείων του Atlas.ti στη γλώσσα ομιλίας"
+
+#: addon/globalPlugins/atlastiHelper.py:231
+msgid "&Name buttons that Atlas.ti leaves unlabelled"
+msgstr "Ο&νοματοδοσία κουμπιών που το Atlas.ti αφήνει χωρίς ετικέτα"
+
+#: addon/globalPlugins/atlastiHelper.py:238
+msgid "Announce the panel when it &changes"
+msgstr "Ανακοίνωση του πίνακα όταν &αλλάζει"
+
+#: addon/globalPlugins/atlastiHelper.py:245
+msgid "Announce the ribbon &tab when it changes"
+msgstr "Ανακοίνωση της &καρτέλας κορδέλας όταν αλλάζει"
+
+#: addon/globalPlugins/atlastiHelper.py:252
+msgid "Announce translated control &states"
+msgstr "Ανακοίνωση μεταφρασμένων &καταστάσεων στοιχείων ελέγχου"
+
+#: addon/globalPlugins/atlastiHelper.py:259
+msgid "Speak a short &hint when describing a control"
+msgstr "Εκφώνηση σύντομης &υπόδειξης κατά την περιγραφή ενός στοιχείου"
+
+#: addon/globalPlugins/atlastiHelper.py:265
+msgid "Enable privacy-filtered ATLAS.ti &UI tree capture"
+msgstr "Ενεργοποίηση καταγραφής &δέντρου διεπαφής ATLAS.ti με φίλτρο απορρήτου"

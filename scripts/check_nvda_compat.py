@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Author: Christos Bouronikos <chrisbouronikos@gmail.com>
+# GitHub: https://github.com/ChristosBouronikos
+# Donations: https://paypal.me/christosbouronikos
 """Fail if manifest.ini's lastTestedNVDAVersion is behind the latest
 non-experimental NVDA API version published by nvaccess/addon-datastore.
 

@@ -1,0 +1,32 @@
+[
+  {
+    "containerRole": "LIST",
+    "containerName": "Documents",
+    "sensitiveNames": ["Interview with participant A", "Clinical notes 2026"]
+  },
+  {
+    "containerRole": "TABLE",
+    "containerName": "Quotations",
+    "sensitiveNames": ["The participant disclosed private information", "Quotation 4:12"]
+  },
+  {
+    "containerRole": "TREEVIEW",
+    "containerName": "Codes",
+    "sensitiveNames": ["Diagnosis: confidential", "Identity and family"]
+  },
+  {
+    "containerRole": "DATAGRID",
+    "containerName": "Memo list",
+    "sensitiveNames": ["Researcher memo: emerging theory", "Case comparison"]
+  },
+  {
+    "containerRole": "EDITABLETEXT",
+    "containerName": "Memo content",
+    "sensitiveNames": ["Unpublished interpretation", "Participant pseudonym"]
+  },
+  {
+    "containerRole": "DOCUMENT",
+    "containerName": "Document content",
+    "sensitiveNames": ["Full research document text", "Απόρρητο ερευνητικό περιεχόμενο"]
+  }
+]

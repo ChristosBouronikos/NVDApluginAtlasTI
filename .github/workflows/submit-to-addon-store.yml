@@ -1,5 +1,9 @@
 name: Prepare NVDA Add-on Store submission
 
+# Author: Christos Bouronikos <chrisbouronikos@gmail.com>
+# GitHub: https://github.com/ChristosBouronikos
+# Donations: https://paypal.me/christosbouronikos
+#
 # On every published GitHub Release, computes the pre-filled "Add-on
 # registration" form URL for nvaccess/addon-datastore and prints it in the
 # workflow run summary, so submitting an update is a single click instead of
